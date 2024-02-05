@@ -57,6 +57,7 @@ class Admin extends BaseController
         $this->users->select('users.id , nama_atasan, fullname,  keperluan,  jam_pergi, jam_balik, hari');
         $this->users->join('izin', 'izin.user_id = users.id');
         $this->users->join('atasan', 'atasan.id = izin.atas_izin');
+        $this->users->orderBy('hari DESC', 'fullname');
         $query = $this->users->get();
         $data['izin'] = $query->getResult();
         return view('izin/rekap', $data);

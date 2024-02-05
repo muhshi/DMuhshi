@@ -28,8 +28,13 @@
                         <label for="name">Nama</label>
                         <input class="form-control" type="text" name="fullname" value="<?= user()->fullname; ?>" disabled>
                         <input class="form-control" type="text" name="user_id" value="<?= user()->id; ?>" hidden>
-                        <input class="form-control" type="text" name="hari" value="<?= date("Y-m-d"); ?>" hidden>
-
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDate" id="tanggal">Tanggal</label>
+                        <input class="form-control <?= isset($errors['tanggal']) ? 'is-invalid' : null; ?>" id="inputDate" type="text" name="hari" placeholder="Select Date" value="<?= date("Y-m-d"); ?>">
+                        <div class="invalid-feedback">
+                            <?= isset($errors['tanggal']) ? $errors['tanggal'] : null; ?>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Keperluan</label>
